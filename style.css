@@ -1,0 +1,29 @@
+body
+{
+	background: rgb(39, 80, 132);
+	font-family: "Consolas";
+	font-size: 24px;
+}
+
+.content
+
+.sliderContainer
+{
+	width: 300px;
+	background: #fff4;
+	margin: auto;
+	border-radius: 10px;
+	padding: 10px;
+	margin-top: 200px;
+}
+
+.resultsContainer
+{
+	width: 300px;
+	background: green;
+	background: #fff4;
+	margin: auto;
+	border-radius: 10px;
+	padding: 10px;
+	margin-top: 50px;
+}

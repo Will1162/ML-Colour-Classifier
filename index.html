@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<link rel="stylesheet" href="style.css">
+		<script src="https://cdn.jsdelivr.net/npm/p5@1.4.0/lib/p5.min.js"></script>
+		<script src="https://unpkg.com/ml5@0.4.2/dist/ml5.min.js"></script>
+		<script src="colours.js"></script>
+		<meta charset="utf-8" />
+
+	</head>
+	<body>
+		<div class="content">
+			<div class="sliderContainer">
+				<div class="sliderGroup">
+					<span>R:</span>
+					<input type="range" min="0" max="255" value="39" class="slider" id="sliderR" oninput="updateColour()">
+					<span class="sliderText">39</span>
+				</div>
+				<div class="sliderGroup">
+					<span>G:</span>
+					<input type="range" min="0" max="255" value="80" class="slider" id="sliderG" oninput="updateColour()">
+					<span class="sliderText">80</span>
+				</div>
+				<div class="sliderGroup">
+					<span>B:</span>
+					<input type="range" min="0" max="255" value="132" class="slider" id="sliderB" oninput="updateColour()">
+					<span class="sliderText">132</span><br>
+				</div>
+			</div>
+
+			<div class="resultsContainer">
+				<span>Guess: </span>
+				<span id="guess"></span><br>
+				
+				<span>Confidence: </span>
+				<span id="confidence"></span>
+			</div>
+		</div>
+
+		<script src="sketch.js"></script>
+	</body>
+</html>
