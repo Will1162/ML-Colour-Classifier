@@ -1,8 +1,13 @@
 let model;
 let state = "collection";
+let r, g, b, guessResults;
 
 function setup()
 {
+	createCanvas(250, 200);
+	background(40);
+	stroke(255);
+
 	let options = 
 	{
 		inputs: ["r", "g", "b"],
@@ -90,15 +95,18 @@ function gotResults(error, results)
 		return;
 	}
 
+	guessResults = results;
+	drawBars();
+
 	document.getElementById("guess").innerText = results[0].label;
 	document.getElementById("confidence").innerText = Math.round(results[0].confidence * 100) + "%";
 }
 
 function updateColour()
 {
-	let r = parseInt(document.getElementById("sliderR").value);
-	let g = parseInt(document.getElementById("sliderG").value);
-	let b = parseInt(document.getElementById("sliderB").value);
+	r = parseInt(document.getElementById("sliderR").value);
+	g = parseInt(document.getElementById("sliderG").value);
+	b = parseInt(document.getElementById("sliderB").value);
 
 	document.getElementsByClassName("sliderText")[0].innerText = r;
 	document.getElementsByClassName("sliderText")[1].innerText = g;
@@ -107,4 +115,64 @@ function updateColour()
 	document.body.style.background = "rgb(" + r + "," + g + "," + b + ")";
 
 	guess(r, g, b);
+}
+
+function drawBars()
+{
+	background(40);
+	//background(r,g,b);
+
+	let barWidth = 20;
+	let barSpacing = 3;
+
+	for (let i = 0; i < 11; i++)
+	{
+		switch (guessResults[i].label)
+		{
+			case "Red":
+				fill(255,0,0);
+				rect((barWidth + barSpacing) * 0, height, barWidth, -height * guessResults[i].confidence);
+				break;
+			case "Orange":
+				fill(255,165,0);
+				rect((barWidth + barSpacing) * 1, height, barWidth, -height * guessResults[i].confidence);
+				break;
+			case "Yellow":
+				fill(255,255,0);
+				rect((barWidth + barSpacing) * 2, height, barWidth, -height * guessResults[i].confidence);
+				break;
+			case "Green":
+				fill(0,255,0);
+				rect((barWidth + barSpacing) * 3, height, barWidth, -height * guessResults[i].confidence);
+				break;
+			case "Blue":
+				fill(0,0,255);
+				rect((barWidth + barSpacing) * 4, height, barWidth, -height * guessResults[i].confidence);
+				break;
+			case "Purple":
+				fill(127,0,255);
+				rect((barWidth + barSpacing) * 5, height, barWidth, -height * guessResults[i].confidence);
+				break;
+			case "Pink":
+				fill(255,0,255);
+				rect((barWidth + barSpacing) * 6, height, barWidth, -height * guessResults[i].confidence);
+				break;
+			case "Brown":
+				fill(139,69,19);
+				rect((barWidth + barSpacing) * 7, height, barWidth, -height * guessResults[i].confidence);
+				break;
+			case "Black":
+				fill(0,0,0);
+				rect((barWidth + barSpacing) * 8, height, barWidth, -height * guessResults[i].confidence);
+				break;
+			case "Grey":
+				fill(127,127,127);
+				rect((barWidth + barSpacing) * 9, height, barWidth, -height * guessResults[i].confidence);
+				break;
+			case "White":
+				fill(255,255,255);
+				rect((barWidth + barSpacing) * 10, height, barWidth, -height * guessResults[i].confidence);
+				break;
+		}
+	}
 }
