@@ -4,7 +4,7 @@ ML-Colour-Classifier"/> <img src="https://img.shields.io/github/downloads/Will11
 ML-Colour-Classifier/total"/> <img src="https://img.shields.io/github/last-commit/Will1162/
 ML-Colour-Classifier"/>
 
-# ML Colour Classifier
+# Machine Learning Colour Classifier
 
 ## About the project
 
